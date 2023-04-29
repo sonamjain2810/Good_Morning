@@ -1,4 +1,4 @@
-package com.example.good_morning
+package good.morning.images.messages
 
 import io.flutter.embedding.android.FlutterActivity
 

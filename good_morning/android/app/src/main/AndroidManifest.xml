@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.good_morning">
+    package="good.morning.images.messages">
    <application
-        android:label="good_morning"
+        android:label="Good Morning Images &amp; Messages"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <meta-data

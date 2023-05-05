@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:facebook_app_events/facebook_app_events.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -26,7 +28,9 @@ class _StatusListState extends State<StatusList> {
   BannerAd GetBannerAd() {
     return BannerAd(
         size: AdSize.largeBanner,
-        adUnitId: Strings.iosAdmobBannerId,
+        adUnitId: Platform.isAndroid
+            ? Strings.androidAdmobBannerId
+            : Strings.iosAdmobBannerId,
         listener: BannerAdListener(onAdLoaded: (_) {
           setState(() {
             isBannerAdLoaded = true;

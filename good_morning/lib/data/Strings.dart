@@ -29,22 +29,24 @@ class Strings {
 
   static const iosFBBannerId = "266846741590142_270405771234239";
 
+  static const androidAppPackageName = "good.morning.images.messages";
+
   static const androidAdmobAppId = "ca-app-pub-8179797674906935~6566714014";
 
-  static const androidAdmobBannerId = "ca-app-pub-8179797674906935/7730386794";
+  static const androidAdmobBannerId = "ca-app-pub-8179797674906935/6503080938";
 
   static const androidAdmobInterstitialId =
-      "ca-app-pub-8179797674906935/8452635043";
+      "ca-app-pub-8179797674906935/5189999267";
 
-  static const androidAdmobNativeId = "ca-app-pub-8179797674906935/7139553372";
+  static const androidAdmobNativeId = "ca-app-pub-8179797674906935/5518174465";
 
   static const androidAdmobRewardedId =
-      "ca-app-pub-8179797674906935/5222824710";
+      "ca-app-pub-8179797674906935/6423189884";
 
   static const testDevice = 'c835aea0489176f272e2d174b8d921ca';
 
   static String appUrl = Platform.isAndroid
-      ? "https://play.google.com/store/apps/details?id=com.rrj_psj.good_morning_sms"
+      ? "https://play.google.com/store/apps/details?id=${Strings.androidAppPackageName}"
       : "https://apps.apple.com/us/app/-/id${Strings.iosAppId}";
 
   static String accountUrl = Platform.isAndroid

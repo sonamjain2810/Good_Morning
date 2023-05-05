@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'QuotesList.dart';
 import 'data/Strings.dart';
 import 'utils/SizeConfig.dart';
@@ -107,8 +108,8 @@ class _MyDrawerState extends State<MyDrawer> {
                       Navigator.of(context).pop();
                       debugPrint("Feedback Button Clicked");
 
-                      if (await canLaunch(Strings.mailContent)) {
-                        await launch(Strings.mailContent);
+                      if (await canLaunchUrlString(Strings.mailContent)) {
+                        await launchUrlString(Strings.mailContent);
                       } else {
                         throw 'Could not launch $Strings.mailContent';
                       }
@@ -124,7 +125,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     onTap: () {
                       Navigator.of(context).pop();
                       debugPrint("More Button Clicked");
-                      launch(Strings.accountUrl);
+                      launchUrlString(Strings.accountUrl);
                     },
                   ),
                   const Divider(),

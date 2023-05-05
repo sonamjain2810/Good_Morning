@@ -50,7 +50,9 @@ class _ImageDetailPageState extends State<ImageDetailPage> {
   BannerAd GetBannerAd() {
     return BannerAd(
         size: AdSize.mediumRectangle,
-        adUnitId: Strings.iosAdmobBannerId,
+        adUnitId: Platform.isAndroid
+            ? Strings.androidAdmobBannerId
+            : Strings.iosAdmobBannerId,
         listener: BannerAdListener(onAdLoaded: (_) {
           setState(() {
             isBannerAdLoaded = true;
@@ -199,7 +201,8 @@ class _ImageDetailPageState extends State<ImageDetailPage> {
       files.add(XFile(path, name: "image"));
 
       await Share.shareXFiles([files[0]],
-          text: "Share Image",
+          text:
+              "Image Shared with ${Strings.appName}\nDownload App Now: ${Strings.appUrl}",
           subject: "subject",
           sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size);
       //await Share.shareFiles([path]);

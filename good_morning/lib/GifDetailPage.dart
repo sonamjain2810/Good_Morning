@@ -44,7 +44,9 @@ class _GifDetailPageState extends State<GifDetailPage> {
   BannerAd GetBannerAd() {
     return BannerAd(
         size: AdSize.mediumRectangle,
-        adUnitId: Strings.iosAdmobBannerId,
+        adUnitId: Platform.isAndroid
+            ? Strings.androidAdmobBannerId
+            : Strings.iosAdmobBannerId,
         listener: BannerAdListener(onAdLoaded: (_) {
           setState(() {
             isBannerAdLoaded = true;
@@ -187,7 +189,8 @@ class _GifDetailPageState extends State<GifDetailPage> {
       files.add(XFile(path, name: "image"));
 
       await Share.shareXFiles([files[0]],
-          text: "Share GIF",
+          text:
+              "GIF Shared with ${Strings.appName}\nDownload App Now: ${Strings.appUrl}",
           subject: "subject",
           sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size);
       //await Share.shareFiles([path]);

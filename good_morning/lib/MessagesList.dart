@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'data/Messages.dart';
@@ -35,7 +37,9 @@ class _MessagesListState extends State<MessagesList> {
   BannerAd GetBannerAd() {
     return BannerAd(
         size: AdSize.largeBanner,
-        adUnitId: Strings.iosAdmobBannerId,
+        adUnitId: Platform.isAndroid
+            ? Strings.androidAdmobBannerId
+            : Strings.iosAdmobBannerId,
         listener: BannerAdListener(onAdLoaded: (_) {
           setState(() {
             isBannerAdLoaded = true;

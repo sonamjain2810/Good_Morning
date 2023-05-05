@@ -81,7 +81,9 @@ class AdService {
 
   static createInterstialAd() {
     InterstitialAd.load(
-      adUnitId: Strings.iosAdmobInterstitialId,
+      adUnitId: Platform.isAndroid
+          ? Strings.androidAdmobInterstitialId
+          : Strings.iosAdmobInterstitialId,
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (InterstitialAd ad) {

@@ -54,7 +54,9 @@ class _HomePageState extends State<HomePage> {
   BannerAd GetBannerAd() {
     return BannerAd(
         size: AdSize.mediumRectangle,
-        adUnitId: Strings.iosAdmobBannerId,
+        adUnitId: Platform.isAndroid
+            ? Strings.androidAdmobBannerId
+            : Strings.iosAdmobBannerId,
         listener: BannerAdListener(onAdLoaded: (_) {
           setState(() {
             isBannerAdLoaded = true;

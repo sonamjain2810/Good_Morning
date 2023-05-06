@@ -51,6 +51,8 @@ dependencies:
   material_design_icons_flutter: any
   facebook_app_events: any
   launch_review: any
+  flutter_local_notifications: any
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

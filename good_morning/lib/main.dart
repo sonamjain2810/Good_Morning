@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:facebook_app_events/facebook_app_events.dart';
+import 'package:good_morning/api/NotificationManager.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'App_Theme.dart';
 import 'HomePage.dart';
@@ -7,6 +8,7 @@ import 'utils/SizeConfig.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  NotificationManager().initNotification;
   runApp(MyApp());
 }
 

@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:good_morning/api/NotificationManager.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'data/Quotes.dart';
 import 'data/Shayari.dart';
@@ -107,6 +109,13 @@ class _HomePageState extends State<HomePage> {
 
     final uuid = await AppTrackingTransparency.getAdvertisingIdentifier();
     debugPrint("UUID: $uuid");
+
+    FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+        FlutterLocalNotificationsPlugin();
+    flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.requestPermission();
   }
 
   @override
@@ -175,6 +184,8 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.orange,
                                     ),
                                     onTap: () {
+                                      NotificationManager()
+                                          .simpleNotifactionShow();
                                       debugPrint("English Message Clicked");
                                       interstitialTag = "lang_english";
                                       facebookAppEvents.logEvent(

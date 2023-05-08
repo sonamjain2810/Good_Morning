@@ -5,10 +5,24 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'App_Theme.dart';
 import 'HomePage.dart';
 import 'utils/SizeConfig.dart';
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  NotificationManager().initNotification;
+  NotificationService().initNotification;
+  tz.initializeTimeZones();
+
+  /*NotificationService().showNotification(
+    title: "Good Morning Messages & Images",
+    body: "It Works!",
+  );*/
+
+  NotificationService().scheduleNotification(
+      title: 'Good Morning Messages & Images',
+      body: 'Scheduled Notification',
+      scheduleNotificationDateTime: DateTime.parse("2023-05-08 18:46"));
+
   runApp(MyApp());
 }
 

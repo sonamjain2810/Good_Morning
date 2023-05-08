@@ -52,6 +52,7 @@ dependencies:
   facebook_app_events: any
   launch_review: any
   flutter_local_notifications: any
+  flutter_datetime_picker: any
   
 dev_dependencies:
   flutter_test:

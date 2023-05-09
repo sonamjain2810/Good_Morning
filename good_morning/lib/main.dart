@@ -18,10 +18,28 @@ void main() {
     body: "It Works!",
   );*/
 
+  DateTime date = DateTime.now();
+  int year = date.year;
+  int month = date.month;
+  int day = date.day;
+  int hour = date.hour;
+  int minutes = date.minute + 2;
+
   NotificationService().scheduleNotification(
       title: 'Good Morning Messages & Images',
       body: 'Scheduled Notification',
-      scheduleNotificationDateTime: DateTime.parse("2023-05-08 18:46"));
+      scheduleNotificationDateTime: DateTime.parse(year.toString() +
+          "-" +
+          month.toString() +
+          "-" +
+          day.toString() +
+          " " +
+          day.toString() +
+          ":" +
+          minutes.toString()));
+
+  // debugPrint(
+  //"Date is $date \n Year is $year \n month is $month \n day is $day \n hour is $hour \n minutes is $minutes");
 
   runApp(MyApp());
 }

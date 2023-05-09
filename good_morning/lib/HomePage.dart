@@ -129,8 +129,10 @@ class _HomePageState extends State<HomePage> {
             context: context,
             builder: (context) {
               return AlertDialog(
-                title: const Text("Alert"),
-                content: const Text("Do you want to Exit"),
+                title: Text("Alert",
+                    style: Theme.of(context).textTheme.labelLarge),
+                content: Text("Do you want to Exit",
+                    style: Theme.of(context).textTheme.labelLarge),
                 actions: [
                   ElevatedButton(
                     onPressed: () {

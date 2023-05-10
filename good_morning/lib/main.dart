@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:facebook_app_events/facebook_app_events.dart';
 import 'package:good_morning/api/NotificationManager.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:intl/intl.dart';
 import 'App_Theme.dart';
 import 'HomePage.dart';
 import 'utils/SizeConfig.dart';
@@ -12,34 +13,22 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   NotificationService().initNotification;
   tz.initializeTimeZones();
-
-  /*NotificationService().showNotification(
+  NotificationService().showNotification(
     title: "Good Morning Messages & Images",
     body: "It Works!",
-  );*/
+  );
 
+  DateFormat format = DateFormat("yyyy-mm-dd hh:mm");
   DateTime date = DateTime.now();
-  int year = date.year;
-  int month = date.month;
-  int day = date.day;
-  int hour = date.hour;
-  int minutes = date.minute + 2;
-
+  date = date.add(const Duration(
+    days: 0,
+    hours: 0,
+    minutes: 2,
+  ));
   NotificationService().scheduleNotification(
       title: 'Good Morning Messages & Images',
       body: 'Scheduled Notification',
-      scheduleNotificationDateTime: DateTime.parse(year.toString() +
-          "-" +
-          month.toString() +
-          "-" +
-          day.toString() +
-          " " +
-          day.toString() +
-          ":" +
-          minutes.toString()));
-
-  // debugPrint(
-  //"Date is $date \n Year is $year \n month is $month \n day is $day \n hour is $hour \n minutes is $minutes");
+      scheduleNotificationDateTime: date);
 
   runApp(MyApp());
 }

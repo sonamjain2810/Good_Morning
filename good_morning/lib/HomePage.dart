@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:good_morning/api/NotificationManager.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'data/Quotes.dart';
@@ -26,6 +27,7 @@ import 'widgets/AppStoreItemWidget2.dart';
 import 'utils/SizeConfig.dart';
 import 'MyDrawer.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 // Height = 8.96
 // Width = 4.14
@@ -47,6 +49,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+
     WidgetsBinding.instance!.addPostFrameCallback((_) => initPlugin());
     AdService.createInterstialAd();
 
@@ -226,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                                         color: Colors.orange,
                                       ),
                                       onTap: () {
-                                        debugPrint("English Message Clicked");
+                                        //debugPrint("${format.parse(date.toString())} is English Message Clicked");
                                         interstitialTag = "lang_english";
                                         facebookAppEvents.logEvent(
                                           name: "Message List",

@@ -53,6 +53,7 @@ dependencies:
   launch_review: any
   flutter_local_notifications: any
   flutter_datetime_picker: any
+  intl: any
   
 dev_dependencies:
   flutter_test:

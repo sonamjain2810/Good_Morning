@@ -13,17 +13,17 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   NotificationService().initNotification;
   tz.initializeTimeZones();
-  NotificationService().showNotification(
+  /*NotificationService().showNotification(
     title: "Good Morning Messages & Images",
     body: "It Works!",
-  );
+  );*/
 
   DateFormat format = DateFormat("yyyy-mm-dd hh:mm");
   DateTime date = DateTime.now();
   date = date.add(const Duration(
-    days: 0,
+    days: 1,
     hours: 0,
-    minutes: 2,
+    minutes: 0,
   ));
   NotificationService().scheduleNotification(
       title: 'Good Morning Messages & Images',
